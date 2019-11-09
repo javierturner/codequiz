@@ -11,31 +11,33 @@
 </head>
 
 <body>
-    <!-- button to start quiz -->
-    <div id="startQuiz">Start Quiz!</div>
-
-    <!--container for holding quiz/questions-->
-    <div id="quiz" style="display:none,">
-        <div id="questions"><p>Question</p></div>
-        <div id="timer"></div>
-        <div id="yourScore"></div>
-        <div id="scores"></div>
-        <div id="choices">
-            <div class="choice" id="A" onclick="checkAnswer('A')">A</div>
-            <div class="choice" id="B" onclick="checkAnswer('B')">B</div>
-            <div class="choice" id="C" onclick="checkAnswer('C')">C</div>
-            <div class="choice" id="D" onclick="checkAnswer('D')">D</div>
+    <div class="container-fluid">
+        <div class="topBar">
+            <button id="viewScores">View High Scores</button>
+            <div id="timer">00:00</div>
         </div>
+        <div class="card" id="begin">
+                <div class="card-header">
+                  Start Quiz!
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Click the button below to start the quiz.</h5>
+                  <p class="card-text">Once you click start, you will be given 75 seconds to complete this quiz. Answer a question incorrectly and you will be penalized by losing 5 seconds from your total time. Answer the question correctly and you will be awarded bonus points!</p>
+                  <a href="#" class="btn btn-primary" id="startQuiz">Start Quiz!</a>
+                </div>
+              </div>
 
 
 
     </div>
+  
+
 
 
 
 
     <script src="assets/questions.js"></script>
-    <!-- <script src="assets/script.js"></script> -->
+    <script src="assets/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
