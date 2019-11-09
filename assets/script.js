@@ -1,11 +1,18 @@
 var startQuiz = document.querySelector("#startQuiz");
 var begin = document.querySelector("#begin");
+var questionsBox = document.querySelector("#questionsBox");
 
+questionsBox.style.visibility = "hidden";
 
 startQuiz.addEventListener("click", function () {
     // timer
     begin.style.display = "none";
-})
+    promptQuestions();
+});
+
+function promptQuestions() {
+    questionsBox.style.visibility = "visible";
+}
 
 
 
