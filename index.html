@@ -34,10 +34,11 @@
         <div class="jumbotron" id="questionsBox">
             <h1 class="display-4" id="questNumber"></h1>
             <p class="lead" id="titles"></p>
-            <div id="choiceA"><button id="buttonA"></button></div>
-            <div id="choiceB"><button id="buttonB"></button></div>
-            <div id="choiceC"><button id="buttonC"></button></div>
-            <div id="choiceD"><button id="buttonD"></button></div>
+            <div id="choice" onClick=nextQuestion()><button id="buttonA"></button></div>
+            <div id="choice" onClick=nextQuestion()><button id="buttonB"></button></div>
+            <div id="choice" onClick=nextQuestion()><button id="buttonC"></button></div>
+            <div id="choice" onClick=nextQuestion()><button id="buttonD"></button></div>
+
         </div>
 
 
@@ -50,7 +51,7 @@
 
 
     <script src="assets/questions.js"></script>
-    <!-- <script src="assets/script.js"></script> -->
+    <script src="assets/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
