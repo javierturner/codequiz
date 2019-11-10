@@ -1,6 +1,8 @@
 var startQuiz = document.getElementById("startQuiz");
 var begin = document.getElementById("begin");
 var enterYourScore = document.getElementById("enterYourScore")
+var submit = document.getElementById("submit");
+var name = document.getElementById("yourName").innerHTML;
 
 //questions
 var questionsBox = document.getElementById("questionsBox");
@@ -71,5 +73,12 @@ function enterScore() {
 }
 
 function submitScore() {
+        var user = {
+            username: name,
+            highScore: timer,
+        };
+        // console.log(user);
+        localStorage.setItem("user", user);
+    };
 
-}
+    

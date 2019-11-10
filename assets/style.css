@@ -1,0 +1,13 @@
+body {
+    background-image: url(images/javascript-screenshot-2004161.jpg);
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#viewScores {
+    color: green !important;
+    /* float: right !important; */
+    /* position: relative; */
+    align-content: center;
+}
