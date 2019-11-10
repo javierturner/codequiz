@@ -1,5 +1,6 @@
 var startQuiz = document.getElementById("startQuiz");
 var begin = document.getElementById("begin");
+var enterYourScore = document.getElementById("enterYourScore")
 
 //questions
 var questionsBox = document.getElementById("questionsBox");
@@ -12,9 +13,10 @@ var buttonEl = document.querySelector("#choice");
 
 //make questions invisible when page first loads
 questionsBox.style.visibility = "hidden";
+enterYourScore.style.visibility = "hidden";
 
 
-var timer = 76;
+var timer = 3;
 
 //click start button, then questions will appear and timer will start
 startQuiz.addEventListener("click", function () {
@@ -31,23 +33,30 @@ function promptQuestions() {
     choiceA.textContent = questions[i].choices[0];
     choiceB.textContent = questions[i].choices[1];
     choiceC.textContent = questions[i].choices[2];
-    choiceD.textContent = questions[i].choices[3];  
+    choiceD.textContent = questions[i].choices[3];
 }
 
 
 //function for timer
 function timeLeft() {
     var time = document.getElementById("timer");
-     setInterval(function () {
+    var outOfTime = setInterval(function () {
         timer--;
         time.textContent = ("Time: " + timer);
+
+        if (timer === -0) {
+            clearInterval(outOfTime)
+            alert("You are out of time!");
+            enterScore();
+        }
+        
     }, 1000)
 }
 
 i = 0
 // buttonEl.addEventListener()
-function nextQuestion(event){
-    var answer = buttonEl.textContent;
+function nextQuestion(event) {
+    var answer = target.textContent;
     console.log(answer);
     if (i < questions.length) {
         i++;
@@ -55,3 +64,12 @@ function nextQuestion(event){
     }
 }
 
+function enterScore() {
+    questionsBox.style.display = "none";
+    enterYourScore.style.visibility = "visible";
+    document.getElementById("yourScore").value = timer;
+}
+
+function submitScore() {
+
+}
