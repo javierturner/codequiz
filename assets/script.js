@@ -14,8 +14,8 @@ var choiceD = document.getElementById("buttonD");
 var buttonEl = document.querySelector("#choice");
 
 //make questions invisible when page first loads
-questionsBox.style.visibility = "hidden";
-enterYourScore.style.visibility = "hidden";
+questionsBox.style.display = "none";
+enterYourScore.style.display = "none";
 
 
 var timer = 3;
@@ -30,7 +30,7 @@ startQuiz.addEventListener("click", function () {
 
 //function to generate questions
 function promptQuestions() {
-    questionsBox.style.visibility = "visible";
+    questionsBox.style.display = "block";
     titles.textContent = questions[i].title;
     choiceA.textContent = questions[i].choices[0];
     choiceB.textContent = questions[i].choices[1];
@@ -58,8 +58,8 @@ function timeLeft() {
 i = 0
 // buttonEl.addEventListener()
 function nextQuestion(event) {
-    var answer = target.textContent;
-    console.log(answer);
+    // var answer = event.target;
+    // console.log(answer);
     if (i < questions.length) {
         i++;
         promptQuestions()
@@ -68,17 +68,18 @@ function nextQuestion(event) {
 
 function enterScore() {
     questionsBox.style.display = "none";
-    enterYourScore.style.visibility = "visible";
+    enterYourScore.style.display = "block";
     document.getElementById("yourScore").value = timer;
 }
 
 function submitScore() {
+    localStorage.setItem("user", user);
         var user = {
             username: name,
             highScore: timer,
         };
         // console.log(user);
-        localStorage.setItem("user", user);
+
     };
 
     

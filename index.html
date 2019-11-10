@@ -11,50 +11,51 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <!-- top bar with scores and time left -->
-        <div class="topBar">
-            <button id="viewScores">View High Scores</button>
-            <div id="timer">Time: 75</div>
-        </div>
-        <!-- box appears to start quiz -->
-        <div class="card" id="begin">
-            <div class="card-header">
-                Start Quiz!
+    <div class="container-fluid col-md-9">
+        <div class="container-fluid border rounded" id="pageBody">
+            <h1>FullStack Development Quiz</h1>
+            <!-- top bar with scores and time left -->
+            <div class="topBar">
+                <button class="btn btn-primary" id="viewScores">View High Scores</button>
+                <div class="border rounded" id="timer">Time: 75</div>
             </div>
-            <div class="card-body">
-                <h5 class="card-title">Click the button below to start the quiz.</h5>
-                <p class="card-text">Once you click start, you will be given 75 seconds to complete this quiz. Answer a
-                    question incorrectly and you will be penalized by losing 5 seconds from your total time. Answer the
-                    question correctly and you will be awarded bonus points!</p>
-                <a href="#" class="btn btn-primary" id="startQuiz">Start Quiz!</a>
+            <!-- box appears to start quiz -->
+            <div class="card" id="begin">
+                <div class="card-body">
+                    <h5 class="card-title">Click the button below to start the quiz.</h5>
+                    <p class="card-text">Once you click start, you will be given 75 seconds to complete this quiz.
+                        Answer a
+                        question incorrectly and you will be penalized by losing 5 seconds from your total time. Answer
+                        the
+                        question correctly and you will be awarded bonus points!</p>
+                    <a href="#" class="btn btn-primary" id="startQuiz">Start Quiz!</a>
+                </div>
             </div>
-        </div>
-        <!-- box appears with questions -->
-        <div class="jumbotron" id="questionsBox">
-            <h1 class="display-4" id="questNumber"></h1>
-            <p class="lead" id="titles"></p>
-            <div id="choice" onClick=nextQuestion()><button id="buttonA"></button></div>
-            <div id="choice" onClick=nextQuestion()><button id="buttonB"></button></div>
-            <div id="choice" onClick=nextQuestion()><button id="buttonC"></button></div>
-            <div id="choice" onClick=nextQuestion()><button id="buttonD"></button></div>
+            <!-- box appears with questions -->
+            <div class="jumbotron" id="questionsBox">
+                <!-- <h1 class="display-4" id="questNumber"></h1> -->
+                <p class="lead" id="titles"></p>
+                <div id="choice" onClick=nextQuestion()>A) <button id="buttonA"></button></div>
+                <div id="choice" onClick=nextQuestion()>B) <button id="buttonB"></button></div>
+                <div id="choice" onClick=nextQuestion()>C) <button id="buttonC"></button></div>
+                <div id="choice" onClick=nextQuestion()>D) <button id="buttonD"></button></div>
 
-        </div>
+            </div>
 
-        <form id="enterYourScore">
+            <form id="enterYourScore">
                 <div class="form-group">
-                  <label for="scoreField">Enter your name</label>
-                  <input type="text" class="form-control" id="yourName" placeholder="John Doe">
+                    <label for="scoreField">Enter your name</label>
+                    <input type="text" class="form-control" id="yourName" placeholder="John Doe">
                 </div>
                 <div class="form-group">
-                  <label>Your Score</label>
-                  <input class="form-control" id="yourScore" placeholder="Your Score">
+                    <label>Your Score</label>
+                    <input class="form-control" id="yourScore" placeholder="Your Score">
                 </div>
                 <button id="submit" onClick=submitScore() type="submit" class="btn btn-primary">Submit</button>
-              </form>
+            </form>
 
 
-
+        </div>
     </div>
 
 
