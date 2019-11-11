@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -11,7 +12,7 @@
 </head>
 
 <body>
-    <div class="container-fluid col-md-9">
+    <div class="container-fluid col-md-7">
         <div class="container-fluid border rounded" id="pageBody">
             <h1>FullStack Development Quiz</h1>
             <!-- top bar with scores and time left -->
@@ -23,11 +24,12 @@
             <div class="card" id="begin">
                 <div class="card-body">
                     <h5 class="card-title">Click the button below to start the quiz.</h5>
-                    <p class="card-text">Once you click start, you will be given 75 seconds to complete this quiz.
+                    <p class="card-text">Once you click start, you will be given 75 seconds to complete this 5 question
+                        quiz.
                         Answer a
-                        question incorrectly and you will be penalized by losing 5 seconds from your total time. Answer
+                        question incorrectly and you will lose 5 seconds from your total time and score. Answer
                         the
-                        question correctly and you will be awarded bonus points!</p>
+                        question correctly and you will be awarded additional time. Good luck!</p>
                     <a href="#" class="btn btn-primary" id="startQuiz">Start Quiz!</a>
                 </div>
             </div>
@@ -41,14 +43,14 @@
                 <div id="choice" onClick=nextQuestion()>D) <button id="buttonD"></button></div>
 
             </div>
-
+            <!--   box appear to enter name  -->
             <form id="enterYourScore">
                 <div class="form-group">
-                    <label for="scoreField">Enter your name</label>
+                    <label class="promptedText" for="scoreField">Enter your name</label>
                     <input type="text" class="form-control" id="yourName" placeholder="John Doe">
                 </div>
                 <div class="form-group">
-                    <label>Your Score</label>
+                    <label class="promptedText">Your Score</label>
                     <input class="form-control" id="yourScore" placeholder="Your Score">
                 </div>
                 <button id="submit" onClick=submitScore() type="submit" class="btn btn-primary">Submit</button>

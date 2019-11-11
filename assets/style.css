@@ -25,6 +25,7 @@ h1 {
 
 #timer {
     background-color: #2D2A32;
+    border-color: white; 
     width: 100px;
     text-align: center;
     color: white;
@@ -37,12 +38,14 @@ h1 {
     background-color: rgba(255, 251, 0, 0.856); 
     margin-top: 15px;
     padding: 30px;
+    border-color: white; 
 }
 
 #startQuiz {
     background-color: #2D2A32 !important;
     font-weight: bold;
     color: white;
+    border-color: white; 
 }
 
 button {
@@ -50,6 +53,7 @@ button {
     font-weight: bold;
     color: white;
     margin: 6px;
+    border-color: white; 
 }
 
 #questionsBox {
@@ -65,4 +69,15 @@ button {
     font-weight: bold;
 }
 
+.promptedText {
+    font-size: 15pt;
+    font-style: italic;
+}
 
+#yourName {
+    width: 300px;
+}
+
+#yourScore {
+    width: 50px;
+}

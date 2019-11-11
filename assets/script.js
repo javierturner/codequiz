@@ -2,7 +2,7 @@ var startQuiz = document.getElementById("startQuiz");
 var begin = document.getElementById("begin");
 var enterYourScore = document.getElementById("enterYourScore")
 var submit = document.getElementById("submit");
-var name = document.getElementById("yourName").innerHTML;
+var name = document.getElementById("yourName");
 
 //questions
 var questionsBox = document.getElementById("questionsBox");
@@ -46,12 +46,12 @@ function timeLeft() {
         timer--;
         time.textContent = ("Time: " + timer);
 
-        if (timer === -0) {
+        if (timer === 0) {
             clearInterval(outOfTime)
             alert("You are out of time!");
             enterScore();
         }
-        
+
     }, 1000)
 }
 
@@ -74,12 +74,11 @@ function enterScore() {
 
 function submitScore() {
     localStorage.setItem("user", user);
-        var user = {
-            username: name,
-            highScore: timer,
-        };
-        // console.log(user);
-
+    var user = {
+        username: name,
+        highScore: timer,
     };
+    console.log(user);
 
-    
+};
+
