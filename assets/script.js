@@ -18,7 +18,7 @@ questionsBox.style.display = "none";
 enterYourScore.style.display = "none";
 
 
-var timer = 3;
+
 
 //click start button, then questions will appear and timer will start
 startQuiz.addEventListener("click", function () {
@@ -38,7 +38,7 @@ function promptQuestions() {
     choiceD.textContent = questions[i].choices[3];
 }
 
-
+var timer = 76;
 //function for timer
 function timeLeft() {
     var time = document.getElementById("timer");
@@ -48,7 +48,7 @@ function timeLeft() {
 
         if (timer === 0) {
             clearInterval(outOfTime)
-            alert("You are out of time!");
+            alert('You are out of time! Click "OK" to enter your high score.');
             enterScore();
         }
 
@@ -57,14 +57,42 @@ function timeLeft() {
 
 i = 0
 // buttonEl.addEventListener()
-function nextQuestion(event) {
-    // var answer = event.target;
-    // console.log(answer);
+// function nextQuestion(event) {
+//     var answer = event.target;
+//     console.log(answer);
+//     if (i < questions.length) {
+//         i++;
+//         promptQuestions()
+//     }
+// }
+
+function nextQuestion (event) {
     if (i < questions.length) {
         i++;
-        promptQuestions()
+        // promptQuestions();
     }
 }
+
+questionsBox.addEventListener("click", function (event) {
+    var element = event.target;
+
+    if (element.matches("button") === true) {
+        var choice = element.textContent
+        console.log(choice);
+        promptQuestions();
+
+        if (choice === questions[i].answer) {
+            alert("Correct!");
+            timer + 20;
+            promptQuestions();
+        }
+        else (timer -20);
+    }
+    
+
+})
+
+
 
 function enterScore() {
     questionsBox.style.display = "none";
