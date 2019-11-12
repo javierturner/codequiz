@@ -1,8 +1,8 @@
 # JT Turner's Code Quiz
 
 ##Links to deployed application
-Github Pages: 
-Deployed Application: 
+Github Pages: https://github.com/javierturner/codequiz
+Deployed Application: https://javierturner.github.io/codequiz/index.html#
 
 
 ##Installation
