@@ -17,7 +17,7 @@
             <h1>FullStack Development Quiz</h1>
             <!-- top bar with scores and time left -->
             <div class="topBar">
-                <button class="btn btn-primary" id="viewScores">View High Scores</button>
+                <button class="btn btn-primary" onClick=highScoreBtn() id="viewScores">View High Scores</button>
                 <div class="border rounded" id="timer">Time: 75</div>
             </div>
             <!-- box appears to start quiz -->
@@ -27,9 +27,9 @@
                     <p class="card-text">Once you click start, you will be given 75 seconds to complete this 5 question
                         quiz.
                         Answer a
-                        question incorrectly and you will lose 5 seconds from your total time and score. Answer
+                        question incorrectly and you will lose 10 seconds from your total time and score. Answer
                         the
-                        question correctly and you will be awarded additional time. Good luck!</p>
+                        question correctly and you will be awarded an additional 10 seconds. Good luck!</p>
                     <a href="#" class="btn btn-primary" id="startQuiz">Start Quiz!</a>
                 </div>
             </div>
@@ -37,10 +37,10 @@
             <div class="jumbotron" id="questionsBox">
                 <!-- <h1 class="display-4" id="questNumber"></h1> -->
                 <p class="lead" id="titles"></p>
-                <div id="choice" onClick=nextQuestion()>A) <button id="buttonA"></button></div>
-                <div id="choice" onClick=nextQuestion()>B) <button id="buttonB"></button></div>
-                <div id="choice" onClick=nextQuestion()>C) <button id="buttonC"></button></div>
-                <div id="choice" onClick=nextQuestion()>D) <button id="buttonD"></button></div>
+                <div id="choice">A) <button id="buttonA"></button></div>
+                <div id="choice">B) <button id="buttonB"></button></div>
+                <div id="choice">C) <button id="buttonC"></button></div>
+                <div id="choice">D) <button id="buttonD"></button></div>
 
             </div>
             <!--   box appear to enter name  -->
@@ -55,6 +55,14 @@
                 </div>
                 <button id="submit" onClick=submitScore() type="submit" class="btn btn-primary">Submit</button>
             </form>
+
+            <div class="jumbotron" id="pennedHighScores">
+                <div class="listOfNames">
+                    <p>fdsafd</p>
+                </div>
+                    
+    
+                </div>
 
 
         </div>

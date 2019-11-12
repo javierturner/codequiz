@@ -3,6 +3,7 @@ var begin = document.getElementById("begin");
 var enterYourScore = document.getElementById("enterYourScore")
 var submit = document.getElementById("submit");
 var name = document.getElementById("yourName");
+var pennedHighScores = document.getElementById("pennedHighScores");
 
 //questions
 var questionsBox = document.getElementById("questionsBox");
@@ -16,6 +17,7 @@ var buttonEl = document.querySelector("#choice");
 //make questions invisible when page first loads
 questionsBox.style.display = "none";
 enterYourScore.style.display = "none";
+pennedHighScores.style.display = "none";
 
 
 
@@ -36,9 +38,10 @@ function promptQuestions() {
     choiceB.textContent = questions[i].choices[1];
     choiceC.textContent = questions[i].choices[2];
     choiceD.textContent = questions[i].choices[3];
+    
 }
 
-var timer = 76;
+var timer = 75;
 //function for timer
 function timeLeft() {
     var time = document.getElementById("timer");
@@ -71,6 +74,9 @@ function nextQuestion (event) {
         i++;
         // promptQuestions();
     }
+    else {
+        alert("All done!");
+    }
 }
 
 questionsBox.addEventListener("click", function (event) {
@@ -79,14 +85,23 @@ questionsBox.addEventListener("click", function (event) {
     if (element.matches("button") === true) {
         var choice = element.textContent
         console.log(choice);
-        promptQuestions();
+        // promptQuestions();
+        
 
-        if (choice === questions[i].answer) {
+        if (choice == questions[i].answer) {
             alert("Correct!");
-            timer + 20;
-            promptQuestions();
+            timer = timer + 5;
+            // promptQuestions();
+            nextQuestion();
         }
-        else (timer -20);
+        else {
+            alert("incorrect");
+            timer = timer - 5;
+            // promptQuestions();
+            nextQuestion();
+        }
+
+        promptQuestions();
     }
     
 
@@ -109,4 +124,10 @@ function submitScore() {
     console.log(user);
 
 };
+
+function highScoreBtn() {
+    begin.style.display = "none";
+    enterYourScore.style.display = "none";
+    pennedHighScores.style.display = "block";
+}
 

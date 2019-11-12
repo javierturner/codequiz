@@ -81,3 +81,12 @@ button {
 #yourScore {
     width: 50px;
 }
+
+#pennedHighScores {
+    background-color: white;
+
+}
+
+#questionsBox {
+    background-color: white;
+}
