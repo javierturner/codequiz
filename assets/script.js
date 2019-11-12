@@ -29,20 +29,32 @@ startQuiz.addEventListener("click", function () {
     promptQuestions();
 });
 
-
+i = 0;
 //function to generate questions
-function promptQuestions() {
+function promptQuestions(event) {
+    if (i < questions.length) {
     questionsBox.style.display = "block";
     titles.textContent = questions[i].title;
     choiceA.textContent = questions[i].choices[0];
     choiceB.textContent = questions[i].choices[1];
     choiceC.textContent = questions[i].choices[2];
     choiceD.textContent = questions[i].choices[3];
-    
+    }
+
+    else {
+        alert("You're all done!")
+        enterScore();
+    }
 }
 
-var timer = 75;
+function nextQuestion (event) {
+    if (i < questions.length) {
+        i++;
+        // promptQuestions();
+    }
+}
 //function for timer
+var timer = 75;
 function timeLeft() {
     var time = document.getElementById("timer");
     var outOfTime = setInterval(function () {
@@ -58,27 +70,7 @@ function timeLeft() {
     }, 1000)
 }
 
-i = 0
-// buttonEl.addEventListener()
-// function nextQuestion(event) {
-//     var answer = event.target;
-//     console.log(answer);
-//     if (i < questions.length) {
-//         i++;
-//         promptQuestions()
-//     }
-// }
-
-function nextQuestion (event) {
-    if (i < questions.length) {
-        i++;
-        // promptQuestions();
-    }
-    else {
-        alert("All done!");
-    }
-}
-
+//right/wrong answers
 questionsBox.addEventListener("click", function (event) {
     var element = event.target;
 
@@ -89,13 +81,13 @@ questionsBox.addEventListener("click", function (event) {
         
 
         if (choice == questions[i].answer) {
-            alert("Correct!");
-            timer = timer + 5;
+            // alert("Correct!");
+            timer = timer + 10;
             // promptQuestions();
             nextQuestion();
         }
         else {
-            alert("incorrect");
+            // alert("incorrect");
             timer = timer - 5;
             // promptQuestions();
             nextQuestion();
