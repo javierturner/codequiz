@@ -3,7 +3,7 @@ var begin = document.getElementById("begin");
 var enterYourScore = document.getElementById("enterYourScore")
 var submit = document.getElementById("submit");
 var name = document.getElementById("yourName");
-var pennedHighScores = document.getElementById("pennedHighScores");
+var viewHighScores = document.getElementById("viewHighScores");
 
 //questions
 var questionsBox = document.getElementById("questionsBox");
@@ -25,69 +25,7 @@ var submit = document.getElementById("submit");
 //make questions invisible when page first loads
 questionsBox.style.display = "none";
 enterYourScore.style.display = "none";
-pennedHighScores.style.display = "none";
-
-
-//Local Storage
-function init () {
-    //grabbing stored scores and name from local storage
-    //parsing the JSON string to an object
-    var storedNames = JSON.stringify(localStorage.getItem("names"));
-    var storedScores = JSON.stringify(localStorage.getItem("scores"));
-
-    if (storedNames !== null) {
-        names = storedNames;
-    }
-
-    renderNames();
-    renderScores();
-}
-
-function storeNames() {
-    //stringify and set "names" key in localstorage to names array
-    localStorage.setItem("names", JSON.stringify(names));
-    localStorage.setItem("scores", JSON.stringify(scores));
-}
-
-//when submit button is pressed
-submit.addEventListener("click", function(event) {
-    event.preventDefault();
-
-    var nameText = nameInput.value.trim();
-    var scoreText = score.value.trim();
-
-    if (nameInput === "") {
-        return;
-    }
-
-    names.push(nameText);
-    nameInput.value="";
-
-    scores.push(scoreText);
-    score.value="";
-
-    storeNames();
-    renderNames();
-})
-
-function renderNames() {
-    nameList.innerHTML = "";
-
-    for (var i = 0; i < names.length; i++) {
-        var name = names[i];
-
-        var li = document.createElement("li");
-        li.textContent = nameg;
-        li.setAttribute("data-index", i);
-
-        nameList.appendChild(li);
-    }
-}
-
-
-
-
-
+viewHighScores.style.display = "none";
 
 
 //click start button, then questions will appear and timer will start
@@ -123,7 +61,7 @@ function nextQuestion (event) {
     }
 }
 //function for timer
-var timer = 5;
+var timer = 76;
 function timeLeft() {
     var time = document.getElementById("timer");
     var outOfTime = setInterval(function () {
@@ -176,19 +114,69 @@ function enterScore() {
     document.getElementById("yourScore").value = timer;
 }
 
-// function submitScore() {
-//     localStorage.setItem("user", user);
-//     var user = {
-//         username: name,
-//         highScore: timer,
-//     };
-//     console.log(user);
-
-// };
 
 function highScoreBtn() {
     begin.style.display = "none";
     enterYourScore.style.display = "none";
-    pennedHighScores.style.display = "block";
+    viewHighScores.style.display = "block";
 }
 
+
+//Local Storage
+function init () {
+    //grabbing stored scores and name from local storage
+    //parsing the JSON string to an object
+    var storedNames = JSON.stringify(localStorage.getItem("names"));
+    // var storedScores = JSON.stringify(localStorage.getItem("scores"));
+
+    if (storedNames !== null) {
+        names = storedNames;
+    }
+
+    renderNames();
+    // renderScores();
+}
+
+function storeNames() {
+    //stringify and set "names" key in localstorage to names array
+    localStorage.setItem("names", JSON.stringify(names));
+    localStorage.setItem("scores", JSON.stringify(scores));
+}
+
+//when submit button is pressed
+submit.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    var nameText = nameInput.value.trim();
+    var scoreText = score.value.trim();
+
+    if (nameInput === "") {
+        return;
+    }
+
+    names.push(nameText);
+    nameInput.value="";
+
+    scores.push(scoreText);
+    score.value="";
+
+    storeNames();
+    renderNames();
+})
+
+function renderNames() {
+    nameList.innerHTML = "";
+    // score.innerHTML = "";
+
+    for (var i = 0; i < names.length; i++) {
+        var name = names[i];
+
+        var li = document.createElement("li");
+        li.textContent = name;
+        li.setAttribute("data-index", i);
+
+        nameList.append(li);
+        // score.append(li);
+
+    }
+}
