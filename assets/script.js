@@ -14,10 +14,78 @@ var choiceC = document.getElementById("buttonC");
 var choiceD = document.getElementById("buttonD");
 var buttonEl = document.querySelector("#choice");
 
+//score
+var nameInput = document.getElementById("yourName");
+var score = document.getElementById("yourScore");
+var nameList = document.getElementById("nameList");
+var names = [];
+var scores = [];
+var submit = document.getElementById("submit");
+
 //make questions invisible when page first loads
 questionsBox.style.display = "none";
 enterYourScore.style.display = "none";
 pennedHighScores.style.display = "none";
+
+
+//Local Storage
+function init () {
+    //grabbing stored scores and name from local storage
+    //parsing the JSON string to an object
+    var storedNames = JSON.stringify(localStorage.getItem("names"));
+    var storedScores = JSON.stringify(localStorage.getItem("scores"));
+
+    if (storedNames !== null) {
+        names = storedNames;
+    }
+
+    renderNames();
+    renderScores();
+}
+
+function storeNames() {
+    //stringify and set "names" key in localstorage to names array
+    localStorage.setItem("names", JSON.stringify(names));
+    localStorage.setItem("scores", JSON.stringify(scores));
+}
+
+//when submit button is pressed
+submit.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    var nameText = nameInput.value.trim();
+    var scoreText = score.value.trim();
+
+    if (nameInput === "") {
+        return;
+    }
+
+    names.push(nameText);
+    nameInput.value="";
+
+    scores.push(scoreText);
+    score.value="";
+
+    storeNames();
+    renderNames();
+})
+
+function renderNames() {
+    nameList.innerHTML = "";
+
+    for (var i = 0; i < names.length; i++) {
+        var name = names[i];
+
+        var li = document.createElement("li");
+        li.textContent = nameg;
+        li.setAttribute("data-index", i);
+
+        nameList.appendChild(li);
+    }
+}
+
+
+
 
 
 
@@ -42,6 +110,7 @@ function promptQuestions(event) {
     }
 
     else {
+        // timeLeft.pause;
         alert("You're all done!")
         enterScore();
     }
@@ -54,7 +123,7 @@ function nextQuestion (event) {
     }
 }
 //function for timer
-var timer = 75;
+var timer = 5;
 function timeLeft() {
     var time = document.getElementById("timer");
     var outOfTime = setInterval(function () {
@@ -107,15 +176,15 @@ function enterScore() {
     document.getElementById("yourScore").value = timer;
 }
 
-function submitScore() {
-    localStorage.setItem("user", user);
-    var user = {
-        username: name,
-        highScore: timer,
-    };
-    console.log(user);
+// function submitScore() {
+//     localStorage.setItem("user", user);
+//     var user = {
+//         username: name,
+//         highScore: timer,
+//     };
+//     console.log(user);
 
-};
+// };
 
 function highScoreBtn() {
     begin.style.display = "none";
