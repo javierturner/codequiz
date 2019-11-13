@@ -50,9 +50,13 @@ function promptQuestions(event) {
     else {
         // timeLeft.pause;
         alert("You're all done!")
+        end = true;
         enterScore();
+        
     }
 }
+
+var end = false;
 
 function nextQuestion (event) {
     if (i < questions.length) {
@@ -72,6 +76,9 @@ function timeLeft() {
             clearInterval(outOfTime)
             alert('You are out of time! Click "OK" to enter your high score.');
             enterScore();
+        }
+        if (end === true) {
+            clearInterval(outOfTime)
         }
 
     }, 1000)
