@@ -64,7 +64,7 @@ function nextQuestion (event) {
         // promptQuestions();
     }
 }
-//function for timer
+//function for timer///////////////////////
 var timer = 76;
 function timeLeft() {
     var time = document.getElementById("timer");

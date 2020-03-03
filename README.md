@@ -1,27 +1,27 @@
 # JT Turner's Code Quiz
 
-##Links to deployed application
+## Links to deployed application
 Github Pages: https://github.com/javierturner/codequiz
 Deployed Application: https://javierturner.github.io/codequiz/index.html#
 
 
-##Installation
+## Installation
 
 There is no installation required for this project.
 
 
-##Usage
+## Usage
 
 The purpose of this was to demonstrate my understanding of local storage along with other JavaScript fundamentals, such as methods to select elements (getElementById, querySelector, etc.), adding event listeners, setting functions to move through arrays within an object. 
 
 
-##Functionality
+## Functionality
 This website functions by giving the user a dialog box explaining the rules to the quiz. Once they click "Start," they will be given 75 seconds to answer 5 questions. If they choose the wrong answer, they will be penalized by losing 5 points/seconds; if they choose the right answer, they will be awarded 10 points/seconds. Once the quiz is complete or they run out of time, they are then prompted to enter their name, which is then stored into local storage along with their score. 
 
 There is also a button for viewing high scores, which will take them directly to the high scores page.
 
 
-##Credits
+## Credits
 
 ° https://www.w3schools.com/jsref/prop_win_localstorage.asp
 ° https://www.w3schools.com/jsref/met_win_setinterval.asp
@@ -29,13 +29,13 @@ There is also a button for viewing high scores, which will take them directly to
 ° https://youtu.be/riDzcEQbX6k
 
 
-##Screenshots of completed application
+## Screenshots of completed application
 
 ![Desktop_codeQuiz](assets/images/codeQuizDesktop.png)
 ![iPhone X_code Quiz](assets/images/codeQuiziPhoneX.png)
 
 
-##License
+## License
 
 MIT License
 
